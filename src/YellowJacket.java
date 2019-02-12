@@ -31,10 +31,10 @@ public class YellowJacket extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("<html>");
-		this.printPage(response.getWriter());
 		
 		Pays p = (request.getParameter("list")==null)?null:Pays.valueOf(request.getParameter("list"));
-		
+
+		this.printPage(response.getWriter(),p);
 		if(p != null)
 		{
 			this.printNbYellowJacket(p, response.getWriter());
@@ -49,11 +49,16 @@ public class YellowJacket extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	private void printPage(PrintWriter print) {
+	private void printPage(PrintWriter print, Pays pays) {
 		print.append("<form ><select name=\"list\" >\n");
 		for(Pays p : Pays.values())
 		{
-			print.append("<option>").append(p.name()).append("</option>");
+			if(pays.equals(p)) {
+				print.append("<option selected>").append(p.name()).append("</option>");
+			}
+			else {
+				print.append("<option>").append(p.name()).append("</option>");
+			}
 		}
 		print.append("</select><input type=\"submit\" value=\"Valider!\"></form>");
 	}
