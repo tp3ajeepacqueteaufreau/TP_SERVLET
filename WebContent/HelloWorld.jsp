@@ -11,19 +11,19 @@
 	<form>
 		<select name="list" >
 		<!-- Methode William -->
-		<option<%if(request.getParameter("list").equals("France")){out.print(" selected");}%>>France</option>
+		<option<%if("France".equals(request.getParameter("list"))){out.print(" selected");}%>>France</option>
 		
 		
 		<!-- Methode Sebastien -->
 		<%		
 		out.print("<option");
-		if(request.getParameter("list").equals("Pologone")){
+		if("Pologone".equals(request.getParameter("list"))){
 			out.print(" selected");
 		}
 		out.println(">Pologone</option>");
 		
 		out.print("<option");
-		if(request.getParameter("list").equals("Allemagne")){
+		if("Allemagne".equals(request.getParameter("list"))){
 			out.print(" selected");
 		}
 		out.println(">Allemagne</option>");
