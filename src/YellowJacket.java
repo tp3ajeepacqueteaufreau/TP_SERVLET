@@ -64,7 +64,8 @@ public class YellowJacket extends HttpServlet {
 			print.append("<br>");
 		
 		print.append(p.name());
-		print.append(": ").append(String.valueOf((new Random()).nextInt()));
+		int tmp = (new Random()).nextInt();
+		print.append(": ").append(String.valueOf((tmp<0)?tmp*(-1):tmp));
 	}
 
 }
