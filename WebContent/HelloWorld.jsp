@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.Random" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,41 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> Hi </h1>
+	<form>
+		<select name="list" >
+		<!-- Methode William -->
+		<option<%if(request.getParameter("list").equals("France")){out.print(" selected");}%>>France</option>
+		
+		
+		<!-- Methode Sebastien -->
+		<%		
+		out.print("<option");
+		if(request.getParameter("list").equals("Pologone")){
+			out.print(" selected");
+		}
+		out.println(">Pologone</option>");
+		
+		out.print("<option");
+		if(request.getParameter("list").equals("Allemagne")){
+			out.print(" selected");
+		}
+		out.println(">Allemagne</option>");
+		
+		%>
+		</select>
+		<input type="submit" value="Valider !">
+	</form>
+	<br />
+	<br />
+	<br />
+	<br />
+	<%
+		if(request.getParameter("list")!= null){
+			out.print("Nombre de Gillet Jaune : ");
+			int tmp = (new Random()).nextInt();
+			out.println(String.valueOf((tmp<0)?tmp*(-1):tmp));
+		}
+	%>
+	
 </body>
 </html>
