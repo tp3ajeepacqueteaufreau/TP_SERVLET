@@ -49,6 +49,7 @@ public class YellowJacket extends HttpServlet {
 		if(pays != null)
 		{
 			this.printNbYellowJacket(pays, response.getWriter());
+			this.printGraphic(pays, response.getWriter());
 		}
 		
 		response.getWriter().append("</html>");
@@ -83,6 +84,13 @@ public class YellowJacket extends HttpServlet {
 		print.append(p.name());
 		int tmp = (new Random()).nextInt();
 		print.append(": ").append(String.valueOf((tmp<0)?tmp*(-1):tmp));
+	}
+	
+	private void printGraphic(Pays pays, PrintWriter print)
+	{
+		print.append("<img src=\"http://localhost:8080/TP_Servlet/YellowJacketGraphic?list=");
+		print.append(pays.name());
+		print.append("\"/>");
 	}
 
 }
