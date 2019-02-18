@@ -1,3 +1,4 @@
+package org.mines.douai.j2ee.tp.pacqueteau_freau;
 
 
 import java.io.IOException;
